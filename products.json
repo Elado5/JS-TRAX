@@ -5,7 +5,7 @@
       "fields": {
         "title": "Olympic Weights Set",
         "price": 150.99,
-        "image": { "fields": { "file": { "url": "./images/product-1.jpeg" } } }
+        "image": { "fields": { "file": { "url": "./images/product-1.jpg" } } }
       }
     },
     {
@@ -13,7 +13,7 @@
       "fields": {
         "title": "8KG Dumbbells",
         "price": 39.99,
-        "image": { "fields": { "file": { "url": "./images/product-2.jpeg" } } }
+        "image": { "fields": { "file": { "url": "./images/product-2.jpg" } } }
       }
     },
     {
@@ -21,7 +21,7 @@
       "fields": {
         "title": "Olympic Rod 20KG",
         "price": 79.99,
-        "image": { "fields": { "file": { "url": "./images/product-3.jpeg" } } }
+        "image": { "fields": { "file": { "url": "./images/product-3.jpg" } } }
       }
     },
     {

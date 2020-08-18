@@ -8,7 +8,7 @@ const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartContent = document.querySelector(".cart-content");
 const cartTotal = document.querySelector(".cart-total");
-const productsMain = document.querySelector(".products-center");
+const productsDOM = document.querySelector(".products-center");
 
 // עגלה
 
@@ -42,7 +42,7 @@ class Products {
 }
 
 //קלאס שאחראי על הצגת המוצרים
-//כל מה שמופיע על המסך מסודר פה
+// הפונקציה אומרת, על כל מוצר שקיים במאגר תכניס את הקוד הבא לתוצאה, תשלוף את הפרטים של המוצר ובסוף תהפוך את התוצאה הזאת לאינר אייצ' טי אם אל
 class UI {
 displayProducts(products) {
     let result = '';
@@ -65,7 +65,8 @@ displayProducts(products) {
         </article>
             <!-- end of single product -->
         `
-     })
+     });
+productsDOM.innerHTML = result;
     }
 }
 
