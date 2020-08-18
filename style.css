@@ -228,7 +228,7 @@ body {
   height: 100%;
   overflow: scroll;
   z-index: 3;
-  background: rgb(231, 226, 221);
+  background: rgba(231, 226, 221, 0.74);
   padding: 1.5rem;
   transition: var(--mainTransition);
   transform: translateX(100%);
@@ -261,7 +261,7 @@ body {
 .cart-item {
   display: grid;
   align-items: center;
-  grid-template-columns: auto 1fr auto;
+  grid-template-columns: auto 1fr auto; /* גודל אוטומטי לתמונה והכפתורים של למעלה/למטה והטקסט תופס מה שביניהם*/
   grid-column-gap: 1.5rem;
   margin: 1.5rem 0;
 }
