@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
 
 :root {
-  --primaryColor: #519bf0; /*קביעת הגדרות קבועות לריפרנס*/
+  --primaryColor: #519bf0; /*בה קביעת הגדרות קבועות לריפרנס בהמשך*/
   --mainWhite: #fff;
   --mainBlack: #222;
   --mainGrey: #ececec;
@@ -18,3 +18,44 @@ body {
   background: var(--mainWhite);
   font-family: "Lato", sans-serif;
 }
+
+/* --------------- Navbar ---------------- */
+.navbar {
+  position: sticky; /*הבר נשאר גם לאורך הסקרולינג*/
+  top: 0;
+  height: 140px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: rgb(240, 245, 245);
+  z-index: 1;
+}
+.navbar-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+.nav-icon {
+  font-size: 2.5rem;
+}
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+}
+.cart-items {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: var(--primaryColor);
+  padding: 0 5px;
+  border-radius: 30%;
+  color: var(--mainWhite);
+}
+
+
+
+/* --------------- סוף NAVBAR ---------------- */
