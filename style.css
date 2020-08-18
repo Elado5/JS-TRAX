@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
 :root {
   --primaryColor: #519bf0; /*בה קביעת הגדרות קבועות לריפרנס בהמשך*/
@@ -22,7 +23,7 @@ body {
 /* --------------- Navbar ---------------- */
 .navbar {
   position: sticky; /*הבר נשאר גם לאורך הסקרולינג*/
-  top: 0;
+  top: 0; /* הנקודה בה זה יתחיל להיות סטיקי*/
   height: 140px;
   width: 100%;
   display: flex;
@@ -33,7 +34,7 @@ body {
 .navbar-center {
   width: 100%;
   max-width: 1170px;
-  margin: 0 auto;
+  margin:0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -56,6 +57,78 @@ body {
   color: var(--mainWhite);
 }
 
-
-
 /* --------------- סוף NAVBAR ---------------- */
+
+/* --------------- Hero ---------------- */
+.hero {
+  min-height: calc(100vh - 140px); /* גובה מלא פחות גובה נאב בר*/
+  background: url("./images/hero-bcg.jpeg") center/cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;}
+
+  /*.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+  background: linear-gradient(270deg, #ffffff, #95a9af);
+    background-size: 150% 300%;
+
+    -webkit-animation: gymation 10s ease infinite;
+    -moz-animation: gymation 10s ease infinite;
+    animation: gymation 10s ease infinite;
+    
+}
+
+@-webkit-keyframes gymation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gymation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gymation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+*/
+.banner {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  padding: 2rem;
+}
+.banner-title {
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  margin-bottom: 3rem;
+  color: rgb(49, 49, 63);
+}
+
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: var(--mainSpacing);
+  font-size: 1.5rem;
+  background: var(--primaryColor);
+  color: var(--mainBlack);
+  border: 1px solid var(--primaryColor);
+  transition: var(--mainTransition);
+  cursor: pointer;
+  
+}
+
+.banner-btn:hover {
+  background: transparent;
+  color: var(--primaryColor);
+  font-size: 1.6rem;
+}
+/* --------------- סוף HERO ---------------- */
