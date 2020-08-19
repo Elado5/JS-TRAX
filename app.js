@@ -103,17 +103,34 @@ class UI {
                     event.target.innerText = "In Cart";
                     event.target.disabled = true;
                     // get product from products based on id we're getting from the bottom
+                    // {... } lets me turn it into an array and add the ''amount:1" section
                     let cartItem = {...Storage.getProduct(id), amount:1};
-                    console.log(cartItem);
                     
                     // add product to the cart
+                    cart = [...cart, cartItem]; // cart = כל המוצרים שיש כרגע בעגלה + המוצר שהרגע נוסף
                     // save cart in local storage
+                    Storage.saveCart(cart)
                     // set cart values
+                    this.setCartValues(cart);
                     // display cart item
                     // show the cart
                 });
             })
         };
+        setCartValues(cart){
+            let tempTotal = 0;
+            let itemsTotal = 0;
+            //map() יוצרת מערך חדש מהתוצאות שמתקבלות מהפונקציה שמחילים על המערך הקיים
+            cart.map(item =>{
+                tempTotal += item.price * item.amount;
+                itemsTotal += item.amount;
+            })
+            //בגלל שלהכפיל מספרים עם שברים נרצה להשתמש ב-TOFIX
+            //מחזירים לפלואוט את הסטרינג שמתקבל מטופיקס לשתי נקודות עשרוניות
+            cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
+            cartItems.innerText = itemsTotal;
+            console.log(cartTotal, cartItems);
+        }
     }
     
 
@@ -124,11 +141,15 @@ class Storage {
         
     }
 
-    //המוצר עושה ריטורן אם האיידי שלו תואם את האיידי שמוזן בפונקציה
+    //מחזיר את המוצר אם האיידי שלו תואם את האיידי שמוזן בפונקציה
     static getProduct(id){
         //json.parse כי המרנו לסטרינג מקודם
         let products = JSON.parse(localStorage.getItem('products'));
         return products.find(product => product.id === id);
+    }
+
+    static saveCart(cart){
+        localStorage.setItem('cart', JSON.stringify(cart));
     }
 }
 
