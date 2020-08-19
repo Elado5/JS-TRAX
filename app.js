@@ -3,7 +3,7 @@
 const cartBtn = document.querySelector(".cart-btn");
 const closeCartBtn = document.querySelector(".close-cart");
 const clearCartBtn = document.querySelector(".clear-cart");
-const cartMain = document.querySelector(".cart");
+const cartDOM = document.querySelector(".cart");
 const cartOverlay = document.querySelector(".cart-overlay");
 const cartItems = document.querySelector(".cart-items");
 const cartContent = document.querySelector(".cart-content");
@@ -113,7 +113,9 @@ class UI {
                     // set cart values
                     this.setCartValues(cart);
                     // display cart item
+                    this.addCartItem(cartItem);
                     // show the cart
+                    this.showCart();
                 });
             })
         };
@@ -129,9 +131,38 @@ class UI {
             //מחזירים לפלואוט את הסטרינג שמתקבל מטופיקס לשתי נקודות עשרוניות
             cartTotal.innerText = parseFloat(tempTotal.toFixed(2));
             cartItems.innerText = itemsTotal;
-            console.log(cartTotal, cartItems);
         }
-    }
+        addCartItem(item){
+            //יוצר DIV
+            //מכניס אותו לקונסט
+            const div = document.createElement('div');
+            //מכניס את הקלאס קארט-אייטם לתוך הדיב
+            div.classList.add('cart-item');
+            div.innerHTML = ` <img src=${item.image} alt="product">
+
+                
+            <div>
+            <h4>${item.title}</h4>
+            <h5>₪${item.price}</h5>
+            <span class="remove-item" data-id=${item.id}>remove</span>
+            </div>
+            <div>
+            <i class="fas fa-chevron-up" data-id=${item.id}></i>
+            <p class ="item-amount">${item.amount}</p>
+            <i class="fas fa-chevron-down" data-id=${item.id}></i>
+            </div>
+            `;
+            cartContent.appendChild(div);
+        }
+
+        showCart(){
+            cartOverlay.classList.add("transparentBcg");
+            cartDOM.classList.add("showCart");
+
+            }
+        }
+
+    
     
 
 //אחסון מקומי - local storage
