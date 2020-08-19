@@ -12,7 +12,12 @@ const productsDOM = document.querySelector(".products-center");
 
 // עגלה
 
+
+
 let cart = [];
+
+//buttons
+let buttonsDOM = [];
 
 // קלאס שאחראי על השגת המוצרים
 class Products {
@@ -24,17 +29,27 @@ class Products {
             let data = await result.json();
 
             let products = data.items;
-            products = products.map(item =>{
-              //תביא לי את שתי התכונות האלה של החפצים מהמערך
-                const {title,price} = item.fields;
-             //תביא לי את האיידי של החפצים מהמערך
-                const {id} = item.sys;
-            //תביא לי את התמונה של החפצים מהמערך
+            products = products.map(item => {
+                //תביא לי את שתי התכונות האלה של החפצים מהמערך
+                const {
+                    title,
+                    price
+                } = item.fields;
+                //תביא לי את האיידי של החפצים מהמערך
+                const {
+                    id
+                } = item.sys;
+                //תביא לי את התמונה של החפצים מהמערך
                 const image = item.fields.image.fields.file.url;
-                return {title,price,id,image}
+                return {
+                    title,
+                    price,
+                    id,
+                    image
+                }
                 //it's like " title = title, price = price" and so on
-             })
-             return products
+            })
+            return products
         } catch (error) {
             console.log(error);
         }
@@ -44,10 +59,11 @@ class Products {
 //קלאס שאחראי על הצגת המוצרים
 // הפונקציה אומרת, על כל מוצר שקיים במאגר תכניס את הקוד הבא לתוצאה, תשלוף את הפרטים של המוצר ובסוף תהפוך את התוצאה הזאת לאינר אייצ' טי אם אל
 class UI {
-displayProducts(products) {
-    let result = '';
-    products.forEach(product => {
-        result += `
+    displayProducts(products) {
+        let result = '';
+        
+        products.forEach(product => {
+            result += `
         <article class="product">
         <div class="img-container">
             <img 
@@ -65,14 +81,55 @@ displayProducts(products) {
         </article>
             <!-- end of single product -->
         `
-     });
-productsDOM.innerHTML = result;
+        });
+        productsDOM.innerHTML = result;
     }
-}
+
+    getBagButtons() {
+        const buttons = [...document.querySelectorAll(".bag-btn")];
+        console.log(buttons);
+        
+        //[...] נוסף כדי ליצור מערך במקום נודליסט
+        buttonsDOM = buttons;
+        buttons.forEach(button => {
+            let id = button.dataset.id;
+            //בדיקה האם האייטם בעגלה
+            let inCart = cart.find(item => item.id === id);
+            if (inCart) {
+                button.innerText = "In Cart";
+                button.disabled = true;
+            }
+                button.addEventListener('click',(event)=> {
+                    event.target.innerText = "In Cart";
+                    event.target.disabled = true;
+                    // get product from products based on id we're getting from the bottom
+                    let cartItem = {...Storage.getProduct(id), amount:1};
+                    console.log(cartItem);
+                    
+                    // add product to the cart
+                    // save cart in local storage
+                    // set cart values
+                    // display cart item
+                    // show the cart
+                });
+            })
+        };
+    }
+    
 
 //אחסון מקומי - local storage
 class Storage {
+    static saveProducts(products) {
+        localStorage.setItem("products", JSON.stringify(products));
+        
+    }
 
+    //המוצר עושה ריטורן אם האיידי שלו תואם את האיידי שמוזן בפונקציה
+    static getProduct(id){
+        //json.parse כי המרנו לסטרינג מקודם
+        let products = JSON.parse(localStorage.getItem('products'));
+        return products.find(product => product.id === id);
+    }
 }
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -80,5 +137,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const products = new Products();
 
     //get all products
-    products.getProducts().then(products => ui.displayProducts(products));
+    products.getProducts().then(products => {
+        ui.displayProducts(products);
+        Storage.saveProducts(products);
+    }).then(() => {
+        ui.getBagButtons();
+    });
+
 })

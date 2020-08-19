@@ -43,7 +43,7 @@
     {
       "sys": { "id": "6" },
       "fields": {
-        "title": "dresser",
+        "title": "Gym Rope",
         "price": 32.99,
         "image": { "fields": { "file": { "url": "./images/product-6.jpeg" } } }
       }
