@@ -212,7 +212,15 @@ class UI {
                 });
                 //cart functionality
                 cartContent.addEventListener('click', event=>{
-                    
+                    //אם מה שלחצתי עליו מכיל את הקלאס רימוב אייטם נמשיך עם הפונקציה
+                    if(event.target.classList.contains('remove-item'))
+                    {
+                        let removeItem = event.target; //המוצר עם כפתור ההסרה
+                        let id = removeItem.dataset.id; //האיידי של המוצר
+                        //צריך לגשת לסבא של האלמנט כדי שנסיר את המוצר עם כל התת-דיבים שלו
+                        cartContent.removeChild(removeItem.parentElement.parentElement);
+                        this.removeItem(id);
+                    }
                 })
             }
             getSingleButton(id){
