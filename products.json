@@ -51,7 +51,7 @@
     {
       "sys": { "id": "7" },
       "fields": {
-        "title": "Gym Rope",
+        "title": "Yoga Lite Set",
         "price": 49.99,
         "image": { "fields": { "file": { "url": "./images/product-7.jpeg" } } }
       }
@@ -59,7 +59,7 @@
     {
       "sys": { "id": "8" },
       "fields": {
-        "title": "Yoga/Lite Set",
+        "title": "Yoga Ball",
         "price": 119.99,
         "image": { "fields": { "file": { "url": "./images/product-8.jpeg" } } }
       }

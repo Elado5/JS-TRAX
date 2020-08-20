@@ -221,7 +221,37 @@ class UI {
                         cartContent.removeChild(removeItem.parentElement.parentElement);
                         this.removeItem(id);
                     }
-                })
+                    
+                    //מוסיף את הפונקציונליות של הקליקים על החצים
+                    else if (event.target.classList.contains("fa-chevron-up")){
+                        let addAmount = event.target;
+                        let id = addAmount.dataset.id;
+                        //שמור במשתנה את המוצר הנוכחי בעגלה
+                        let tempItem = cart.find(item => item.id===id); 
+                        tempItem.amount = tempItem.amount +1;
+                        Storage.saveCart(cart); //שימוש בפונקציית שמירת עגלה
+                        this.setCartValues(cart);
+                        addAmount.nextElementSibling.innerText = tempItem.amount;
+                    }
+
+                    else if (event.target.classList.contains("fa-chevron-down")){
+                        let lowerAmount = event.target;
+                        let id = lowerAmount.dataset.id;
+                        //שמור במשתנה את המוצר הנוכחי בעגלה
+                        let tempItem = cart.find(item => item.id===id); 
+                        tempItem.amount = tempItem.amount -1;
+                        if(tempItem.amount > 0){
+                        Storage.saveCart(cart); //שימוש בפונקציית שמירת עגלה
+                        this.setCartValues(cart);
+                        lowerAmount.previousElementSibling.innerText = tempItem.amount;}
+                        else{
+                            Storage.saveCart(cart); //שימוש בפונקציית שמירת עגלה
+                        this.setCartValues(cart);
+                                                    cartContent.removeChild(lowerAmount.parentElement.parentElement);
+
+                        }
+                    }
+                });
             }
             getSingleButton(id){
                 return buttonsDOM.find(button => button.dataset.id === id);
