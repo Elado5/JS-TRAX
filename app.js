@@ -72,7 +72,7 @@ class UI {
             class="product-img" />
             <button class="bag-btn" data-id=${product.id}>
                 <i class="fas fa-shopping-cart"></i>
-                add to bag
+                add to cart
             </button>
 
         </div>
@@ -87,7 +87,6 @@ class UI {
 
     getBagButtons() {
         const buttons = [...document.querySelectorAll(".bag-btn")];
-        console.log(buttons);
         
         //[...] נוסף כדי ליצור מערך במקום נודליסט
         buttonsDOM = buttons;
@@ -116,9 +115,11 @@ class UI {
                     this.addCartItem(cartItem);
                     // show the cart
                     this.showCart();
+
+                    this.cartLogic();
                 });
-            })
-        };
+            });
+        }
         setCartValues(cart){
             let tempTotal = 0;
             let itemsTotal = 0;
@@ -154,10 +155,22 @@ class UI {
             `;
             cartContent.appendChild(div);
         }
-
-            showCart(){
+        showCart() {
             cartOverlay.classList.add("transparentBcg");
             cartDOM.classList.add("showCart");
+            }
+
+        setupAPP() {
+            cart = Storage.getCart();
+            this.setCartValues(cart);
+            this.populateCart(cart); 
+            cartBtn.addEventListener('click', this.showCart);
+            closeCartBtn.addEventListener('click', this.hideCart);
+        }
+            
+
+            populateCart(cart){
+                cart.forEach(item =>this.addCartItem(item));
             }
 
             hideCart(){
@@ -165,16 +178,45 @@ class UI {
                 cartDOM.classList.remove("showCart");
             }
 
-            setupAPP(){
-                cart = Storage.getCart();
-                this.setCartValues(cart);
-                this.populateCart(cart); 
-                cartBtn.addEventListener('click', this.showCart);
-                closeCartBtn.addEventListener('click', this.hideCart);
+            clearCart() {
+                //תחזיר לי את מספר האיידי של המוצר בעגלה ושמור בקארטאייטמס
+                let cartItems = cart.map(item => item.id);
+
+                console.log(cart);
+                //תריץ מתודה שמסירה את המוצרים במערך הזה
+                cartItems.forEach(id => this.removeItem(id));
+
+                //כל עוד יש ילדים בעגלה זה יסיר אותם אחד אחד עד הסוף
+                while (cartContent.children.length>0) {
+                    cartContent.removeChild(cartContent.children[0]);
+                }
+                this.hideCart();
             }
 
-            populateCart(cart){
-                cart.forEach(item =>this.addCartItem(item));
+            removeItem(id){
+                    //תחזיר לי את כל המוצרים שהאיידי שלהם לא זהה לאיידי שניתן בפונקציה
+                cart = cart.filter(item => item.id !==id);
+                    // תגיד את הערכים בעגלה למה שהתקבל
+                this.setCartValues(cart);
+                    //שמור את השינוי
+                Storage.saveCart(cart);
+                let button = this.getSingleButton(id);
+                button.disabled = false;
+                button.innerHTML = `<i class="fas fa-shopping-cart"></i>add to cart`;
+            }
+
+            cartLogic(){
+                //clear cart button
+                clearCartBtn.addEventListener("click", () => {
+                    this.clearCart();
+                });
+                //cart functionality
+                cartContent.addEventListener('click', event=>{
+                    
+                })
+            }
+            getSingleButton(id){
+                return buttonsDOM.find(button => button.dataset.id === id);
             }
         }
 
@@ -222,3 +264,4 @@ ui.setupAPP();
     });
 
 })
+
