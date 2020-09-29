@@ -60,7 +60,7 @@ class Products {
 // הפונקציה אומרת, על כל מוצר שקיים במאגר תכניס את הקוד הבא לתוצאה, תשלוף את הפרטים של המוצר ובסוף תהפוך את התוצאה הזאת לאינר אייצ' טי אם אל
 class UI {
     displayProducts(products) {
-        let result = '';
+        let result = "";
         
         products.forEach(product => {
             result += `
@@ -86,7 +86,7 @@ class UI {
     }
 
     getBagButtons() {
-        const buttons = [...document.querySelectorAll(".bag-btn")];
+        let buttons = [...document.querySelectorAll(".bag-btn")];
         
         //[...] נוסף כדי ליצור מערך במקום נודליסט
         buttonsDOM = buttons;
@@ -108,7 +108,7 @@ class UI {
                     // add product to the cart
                     cart = [...cart, cartItem]; // cart = כל המוצרים שיש כרגע בעגלה + המוצר שהרגע נוסף
                     // save cart in local storage
-                    Storage.saveCart(cart)
+                    Storage.saveCart(cart);
                     // set cart values
                     this.setCartValues(cart);
                     // display cart item
@@ -116,7 +116,7 @@ class UI {
                     // show the cart
                     this.showCart();
 
-                    this.cartLogic();
+                    
                 });
             });
         }
@@ -228,7 +228,7 @@ class UI {
                         let id = addAmount.dataset.id;
                         //שמור במשתנה את המוצר הנוכחי בעגלה
                         let tempItem = cart.find(item => item.id===id); 
-                        tempItem.amount = tempItem.amount +1;
+                        tempItem.amount += 1;
                         Storage.saveCart(cart); //שימוש בפונקציית שמירת עגלה
                         this.setCartValues(cart);
                         addAmount.nextElementSibling.innerText = tempItem.amount;
@@ -282,7 +282,7 @@ class Storage {
     //האם המוצר קיים או לא
     //אם קיים באחסון המקומי, תביא לי אותו משם, אם לא אז תחזיר מערך ריק
     static getCart(){
-        return localStorage.getItem('cart')?JSON.parse(localStorage.getItem('cart')) : [];
+        return localStorage.getItem('cart') ? JSON.parse(localStorage.getItem('cart')) : [];
     }
 }
 
@@ -297,9 +297,11 @@ ui.setupAPP();
     products.getProducts().then(products => {
         ui.displayProducts(products);
         Storage.saveProducts(products);
-    }).then(() => {
+    })
+    .then(() => {
         ui.getBagButtons();
+        ui.cartLogic();
     });
 
-})
+});
 
