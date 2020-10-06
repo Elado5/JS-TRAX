@@ -1,0 +1,484 @@
+@import url("https://fonts.googleapis.com/css?family=Lato:400,700");
+
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
+
+$primaryColor: #519bf0;
+$mainBlack: #222;
+$mainWhite: #fff;
+$mainGrey: #ececec;
+$mainSpacing: 0.1rem;
+$mainTransition:all 0.3s linear;
+
+
+
+* {
+  scroll-behavior: smooth;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  color: $mainBlack;
+  background: $mainWhite;
+  font-family: "Lato", sans-serif;
+}
+
+/* --------------- Navbar ---------------- */
+
+.navbar {
+  position: sticky;
+
+  /*הבר נשאר גם לאורך הסקרולינג*/
+  top: 0;
+
+  /* הנקודה בה זה יתחיל להיות סטיקי*/
+  height: 140px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  background: rgb(240, 245, 245);
+  z-index: 1;
+}
+
+.navbar-center {
+  width: 100%;
+  max-width: 1170px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1.5rem;
+}
+
+.nav-icon {
+  font-size: 2.5rem;
+}
+
+.cart-btn {
+  position: relative;
+  cursor: pointer;
+}
+
+.cart-items {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background: $primaryColor;
+  padding: 0 5px;
+  border-radius: 30%;
+  color: $mainWhite;
+}
+
+/* --------------- סוף NAVBAR ---------------- */
+
+/* --------------- Hero ---------------- */
+
+.hero {
+  min-height: calc(100vh - 140px);
+
+  /* גובה מלא פחות גובה נאב בר*/
+  background: url("./images/hero-bcg.jpeg") (center / cover) no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+  /*.layer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 30%;
+  background: linear-gradient(270deg, #ffffff, #95a9af);
+    background-size: 150% 300%;
+
+    -webkit-animation: gymation 10s ease infinite;
+    -moz-animation: gymation 10s ease infinite;
+    animation: gymation 10s ease infinite;
+    
+}
+
+@-webkit-keyframes gymation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@-moz-keyframes gymation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+@keyframes gymation {
+    0%{background-position:0% 50%}
+    50%{background-position:100% 50%}
+    100%{background-position:0% 50%}
+}
+*/
+
+.banner {
+  text-align: center;
+  background: rgba(255, 255, 255, 0.4);
+  display: inline-block;
+  padding: 2rem;
+}
+
+.banner-title {
+  font-size: 3.4rem;
+  text-transform: uppercase;
+  letter-spacing: $mainSpacing;
+  margin-bottom: 3rem;
+  color: rgb(49, 49, 63);
+}
+
+.banner-btn {
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  letter-spacing: $mainSpacing;
+  font-size: 1.5rem;
+  background: $primaryColor;
+  color: $mainBlack;
+  border: 1px solid $primaryColor;
+  transition: $mainTransition;
+  cursor: pointer;
+
+  &:hover {
+    background: transparent;
+    color: $primaryColor;
+    font-size: 1.6rem;
+  }
+}
+
+/* --------------- סוף HERO ---------------- */
+
+/* --------------- מוצרים ---------------- */
+
+.products {
+  padding: 4rem 0;
+}
+
+.section-title h2 {
+  color: rgb(240, 240, 240);
+  text-align: center;
+  font-size: 2.9rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: $mainSpacing;
+  background: -moz-linear-gradient(left, rgba(179, 220, 237, 1) 0%, rgba(35, 186, 232, 1) 36%, rgba(93, 230, 240, 1) 72%, rgba(188, 224, 238, 1) 100%);
+  background: linear-gradient(to right, rgba(179, 220, 237, 1) 0%, rgba(35, 186, 232, 1) 23%, rgba(232, 75, 106, 1) 53%, rgba(93, 230, 240, 1) 77%, rgba(188, 224, 238, 1) 100%);
+}
+
+.section-title1 h2 {
+  /*לדף קטגוריות*/
+  text-align: center;
+  font-size: 3.5rem;
+  color: rgb(240, 240, 240);
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: $mainSpacing;
+  text-shadow: 0px 0px 8px #0941496b;
+  background: linear-gradient(to right, rgba(179, 220, 237, 1) 0%, rgba(35, 186, 232, 1) 23%, rgb(75, 85, 232) 53%, rgba(93, 230, 240, 1) 77%, rgba(188, 224, 238, 1) 100%);
+}
+
+.section-title2 h2 {
+  /*לדף קטגוריות*/
+  text-align: center;
+  font-size: 3.5rem;
+  color: rgb(240, 240, 240);
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: $mainSpacing;
+  text-shadow: 0px 0px 8px #2b707a6b;
+  background: linear-gradient(to right, rgb(240, 245, 213) 0%, rgb(247, 223, 117) 23%, rgb(232, 138, 75) 53%, rgb(93, 240, 179) 77%, rgb(238, 218, 188) 100%);
+}
+
+.products-center {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+
+  /* minmax קובע טווח רצוי לטורים*/
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+
+.products-center1 {
+  /*בשביל דף קטגוריות*/
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+
+  /* minmax קובע טווח רצוי לטורים*/
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+
+.products-center2 {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: grid;
+
+  /* minmax קובע טווח רצוי לטורים*/
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+
+.img-container {
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0px 0px 8px #3b4a80;
+}
+
+.bag-btn {
+  position: absolute;
+  top: 70%;
+  right: 0;
+  background: $primaryColor;
+  border: none;
+  text-transform: uppercase;
+  padding: 0.5rem 0.75rem;
+  letter-spacing: $mainSpacing;
+  font-weight: bold;
+  transition: $mainTransition;
+  transform: translateX(101%);
+  cursor: pointer;
+
+  &:hover {
+    color: $mainWhite;
+  }
+}
+
+.fa-shopping-cart {
+  margin-right: 0.5rem;
+}
+
+.img-container:hover .bag-btn {
+  transform: translateX(0);
+}
+
+.product-img {
+  display: block;
+  width: 100%;
+  min-height: 12rem;
+  transition: $mainTransition;
+}
+
+.img-container:hover .product-img {
+  opacity: 0.5;
+}
+
+.product {
+  h3 {
+    text-transform: capitalize;
+    font-size: 1.1rem;
+    margin-top: 1rem;
+    letter-spacing: $mainSpacing;
+    text-align: center;
+  }
+
+  h4 {
+    margin-top: 0.7rem;
+    letter-spacing: $mainSpacing;
+    color: $primaryColor;
+    text-align: center;
+  }
+}
+
+/* ---------------סוף המוצרים ---------------- */
+
+/* --------------- עגלה ---------------- */
+
+.cart-overlay {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  transition: $mainTransition;
+  background: rgba(166, 187, 219, 0.5);
+  z-index: 2;
+  visibility: hidden;
+}
+
+.cart {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  overflow: scroll;
+  z-index: 3;
+  background: rgba(231, 226, 221, 0.74);
+  padding: 1.5rem;
+  transition: $mainTransition;
+  transform: translateX(100%);
+}
+
+.showCart {
+  transform: translateX(0);
+}
+
+.transparentBcg {
+  visibility: visible;
+}
+
+@media screen and (min-width: 768px) {
+  .cart {
+    width: 30vw;
+    min-width: 450px;
+  }
+}
+
+.close-cart {
+  font-size: 1.7rem;
+  cursor: pointer;
+}
+
+.cart h2 {
+  text-transform: capitalize;
+  text-align: center;
+  letter-spacing: $mainSpacing;
+  margin-bottom: 2rem;
+}
+
+/*---------- מוצר בעגלה -------------------- */
+
+.cart-item {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+
+  /* גודל אוטומטי לתמונה והכפתורים של למעלה/למטה והטקסט תופס מה שביניהם*/
+  grid-column-gap: 1.5rem;
+  margin: 1.5rem 0;
+
+  img {
+    width: 75px;
+    height: 75px;
+  }
+
+  h4 {
+    font-size: 0.85rem;
+    text-transform: capitalize;
+    letter-spacing: $mainSpacing;
+  }
+
+  h5 {
+    margin: 0.5rem 0;
+    letter-spacing: $mainSpacing;
+  }
+}
+
+.item-amount {
+  text-align: center;
+}
+
+.remove-item {
+  color: grey;
+  cursor: pointer;
+}
+
+.fa-chevron-up, .fa-chevron-down {
+  color: $primaryColor;
+  cursor: pointer;
+}
+
+/*---------- סוף של מוצר בעגלה -------------------- */
+
+.cart-footer {
+  margin-top: 2rem;
+  letter-spacing: $mainSpacing;
+  text-align: center;
+
+  h3 {
+    text-transform: capitalize;
+    margin-bottom: 1rem;
+  }
+}
+
+/* ---------------סוף העגלה ---------------- */
+
+/* footer */
+
+.footer-classic a {
+  color: #ffffff;
+
+  &:focus, &:active {
+    color: #ffffff;
+  }
+}
+
+.nav-list li {
+  padding-top: 5px;
+  padding-bottom: 5px;
+
+  a:hover:before {
+    margin-left: 0;
+    opacity: 1;
+    visibility: visible;
+  }
+}
+
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.social-inner {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  align-items: center;
+  width: 100%;
+  padding: 23px;
+  font: 900 13px/1 "Lato", "Segoe UI", 'Roboto', "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.social-container .col {
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(0deg, rgb(221, 225, 247) 0%, rgb(83, 151, 214) 100%);
+}
+
+.nav-list li a:before {
+  content: "\f14f";
+  font: 400 21px/1 "Material Design Icons";
+  color: #4d6de6;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: -28px;
+  margin-right: 7px;
+  opacity: 0;
+  visibility: hidden;
+  transition: .22s ease;
+}
+
+.float {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  margin-left: 95%;
+  color: rgba(83, 83, 221, 0.411);
+}
+
+.contact-list, .nav-list, .brand, .section {
+  text-align: center;
+}
