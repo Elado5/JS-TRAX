@@ -2,7 +2,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
-@import "./variables";
+@use 'variables';
 
 
 * {
@@ -21,6 +21,7 @@ body {
 /* --------------- Navbar ---------------- */
 
 .navbar {
+  z-index: 3;
   position: sticky;
 
   /*הבר נשאר גם לאורך הסקרולינג*/
@@ -32,7 +33,6 @@ body {
   display: flex;
   align-items: center;
   background: rgb(240, 245, 245);
-  z-index: 1;
 }
 
 .navbar-center {
@@ -70,29 +70,29 @@ body {
 
 .hero {
   min-height: calc(100vh - 140px);
-
   /* גובה מלא פחות גובה נאב בר*/
-  background: url("./images/hero-bcg.jpeg") (center / cover) no-repeat;
   display: flex;
+  background-image: url("./images/hero-bcg.jpeg");
+background-size:cover;
+background-position: center;
   align-items: center;
   justify-content: center;
 }
-
-  /*.layer {
-    position: fixed;
+.layer {
+  z-index: 0;
+    position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    opacity: 30%;
-  background: linear-gradient(270deg, #ffffff, #95a9af);
-    background-size: 150% 300%;
-
-    -webkit-animation: gymation 10s ease infinite;
-    -moz-animation: gymation 10s ease infinite;
-    animation: gymation 10s ease infinite;
-    
+    min-height: 100vh;
+    opacity: 35%;
+    background: linear-gradient(270deg, #f3e3e8, #ffffff, #92ccde);
+    background-size: 250% 100%;
+    -webkit-animation: gymation 5s ease infinite;
+    animation: gymation 15s ease infinite;
 }
+    
+
 
 @-webkit-keyframes gymation {
     0%{background-position:0% 50%}
@@ -109,9 +109,10 @@ body {
     50%{background-position:100% 50%}
     100%{background-position:0% 50%}
 }
-*/
+
 
 .banner {
+  z-index: 1;
   text-align: center;
   background: rgba(255, 255, 255, 0.4);
   display: inline-block;
@@ -119,6 +120,7 @@ body {
 }
 
 .banner-title {
+  z-index: 0;
   font-size: 3.4rem;
   text-transform: uppercase;
   letter-spacing: $mainSpacing;
@@ -149,10 +151,13 @@ body {
 /* --------------- מוצרים ---------------- */
 
 .products {
+  z-index: 2;
+
   padding: 4rem 0;
 }
 
 .section-title h2 {
+
   color: rgb(240, 240, 240);
   text-align: center;
   font-size: 2.9rem;

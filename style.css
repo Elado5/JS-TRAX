@@ -31,7 +31,7 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background: #f0f5f5;
-  z-index: 1;
+  z-index: 3;
 }
 
 .navbar-center {
@@ -74,10 +74,12 @@ body {
 .hero {
   min-height: calc(100vh - 140px);
   /* גובה מלא פחות גובה נאב בר*/
-  background: url("./images/hero-bcg.jpeg") center/cover no-repeat;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  background-image: url("./images/hero-bcg.jpeg");
+  background-size: cover;
+  background-position: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -86,39 +88,47 @@ body {
           justify-content: center;
 }
 
-/*.layer {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    opacity: 30%;
-  background: linear-gradient(270deg, #ffffff, #95a9af);
-    background-size: 150% 300%;
-
-    -webkit-animation: gymation 10s ease infinite;
-    -moz-animation: gymation 10s ease infinite;
-    animation: gymation 10s ease infinite;
-    
+.layer {
+  z-index: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  opacity: 35%;
+  background: -webkit-gradient(linear, right top, left top, from(#f3e3e8), color-stop(#ffffff), to(#92ccde));
+  background: linear-gradient(270deg, #f3e3e8, #ffffff, #92ccde);
+  background-size: 250% 100%;
+  -webkit-animation: gymation 5s ease infinite;
+  animation: gymation 15s ease infinite;
 }
 
 @-webkit-keyframes gymation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-@-moz-keyframes gymation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
-}
+
 @keyframes gymation {
-    0%{background-position:0% 50%}
-    50%{background-position:100% 50%}
-    100%{background-position:0% 50%}
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
-*/
+
 .banner {
+  z-index: 2;
   text-align: center;
   background: rgba(255, 255, 255, 0.4);
   display: inline-block;
@@ -155,6 +165,7 @@ body {
 /* --------------- סוף HERO ---------------- */
 /* --------------- מוצרים ---------------- */
 .products {
+  z-index: 2;
   padding: 4rem 0;
 }
 
