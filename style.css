@@ -1,73 +1,92 @@
+@charset "UTF-8";
 @import url("https://fonts.googleapis.com/css?family=Lato:400,700");
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
-
-:root {
-  --primaryColor: #519bf0; /*בה קביעת הגדרות קבועות לריפרנס בהמשך*/
-  --mainWhite: #fff;
-  --mainBlack: #222;
-  --mainGrey: #ececec;
-  --mainSpacing: 0.1rem;
-  --mainTransition: all 0.3s linear;
-}
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap");
 * {
+  scroll-behavior: smooth;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
 }
+
 body {
-  color: var(--mainBlack);
-  background: var(--mainWhite);
+  color: #222;
+  background: #fff;
   font-family: "Lato", sans-serif;
 }
 
 /* --------------- Navbar ---------------- */
 .navbar {
-  position: sticky; /*הבר נשאר גם לאורך הסקרולינג*/
-  top: 0; /* הנקודה בה זה יתחיל להיות סטיקי*/
+  position: -webkit-sticky;
+  position: sticky;
+  /*הבר נשאר גם לאורך הסקרולינג*/
+  top: 0;
+  /* הנקודה בה זה יתחיל להיות סטיקי*/
   height: 140px;
   width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  background: rgb(240, 245, 245);
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: #f0f5f5;
   z-index: 1;
 }
+
 .navbar-center {
   width: 100%;
   max-width: 1170px;
-  margin:0 auto;
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   padding: 0 1.5rem;
 }
+
 .nav-icon {
   font-size: 2.5rem;
 }
+
 .cart-btn {
   position: relative;
   cursor: pointer;
 }
+
 .cart-items {
   position: absolute;
   top: -8px;
   right: -8px;
-  background: var(--primaryColor);
+  background: #519bf0;
   padding: 0 5px;
   border-radius: 30%;
-  color: var(--mainWhite);
+  color: #fff;
 }
 
 /* --------------- סוף NAVBAR ---------------- */
-
 /* --------------- Hero ---------------- */
 .hero {
-  min-height: calc(100vh - 140px); /* גובה מלא פחות גובה נאב בר*/
+  min-height: calc(100vh - 140px);
+  /* גובה מלא פחות גובה נאב בר*/
   background: url("./images/hero-bcg.jpeg") center/cover no-repeat;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
-  justify-content: center;}
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
 
-  /*.layer {
+/*.layer {
     position: fixed;
     top: 0;
     left: 0;
@@ -105,89 +124,166 @@ body {
   display: inline-block;
   padding: 2rem;
 }
+
 .banner-title {
   font-size: 3.4rem;
   text-transform: uppercase;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   margin-bottom: 3rem;
-  color: rgb(49, 49, 63);
+  color: #31313f;
 }
 
 .banner-btn {
   padding: 1rem 3rem;
   text-transform: uppercase;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   font-size: 1.5rem;
-  background: var(--primaryColor);
-  color: var(--mainBlack);
-  border: 1px solid var(--primaryColor);
-  transition: var(--mainTransition);
+  background: #519bf0;
+  color: #222;
+  border: 1px solid #519bf0;
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   cursor: pointer;
-  
 }
 
 .banner-btn:hover {
   background: transparent;
-  color: var(--primaryColor);
+  color: #519bf0;
   font-size: 1.6rem;
 }
+
 /* --------------- סוף HERO ---------------- */
-
 /* --------------- מוצרים ---------------- */
-
 .products {
   padding: 4rem 0;
 }
+
 .section-title h2 {
+  color: #f0f0f0;
   text-align: center;
-  font-size: 2.5rem;
+  font-size: 2.9rem;
   margin-bottom: 5rem;
   text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
+  background: -webkit-gradient(linear, left top, right top, from(#b3dced), color-stop(23%, #23bae8), color-stop(53%, #e84b6a), color-stop(77%, #5de6f0), to(#bce0ee));
+  background: linear-gradient(to right, #b3dced 0%, #23bae8 23%, #e84b6a 53%, #5de6f0 77%, #bce0ee 100%);
 }
+
+.section-title1 h2 {
+  /*לדף קטגוריות*/
+  text-align: center;
+  font-size: 3.5rem;
+  color: #f0f0f0;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 0px 8px #0941496b;
+  background: -webkit-gradient(linear, left top, right top, from(#b3dced), color-stop(23%, #23bae8), color-stop(53%, #4b55e8), color-stop(77%, #5de6f0), to(#bce0ee));
+  background: linear-gradient(to right, #b3dced 0%, #23bae8 23%, #4b55e8 53%, #5de6f0 77%, #bce0ee 100%);
+}
+
+.section-title2 h2 {
+  /*לדף קטגוריות*/
+  text-align: center;
+  font-size: 3.5rem;
+  color: #f0f0f0;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 0px 8px #2b707a6b;
+  background: -webkit-gradient(linear, left top, right top, from(#f0f5d5), color-stop(23%, #f7df75), color-stop(53%, #e88a4b), color-stop(77%, #5df0b3), to(#eedabc));
+  background: linear-gradient(to right, #f0f5d5 0%, #f7df75 23%, #e88a4b 53%, #5df0b3 77%, #eedabc 100%);
+}
+
 .products-center {
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
-  display: grid; /* minmax קובע טווח רצוי לטורים*/
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  display: -ms-grid;
+  display: grid;
+  /* minmax קובע טווח רצוי לטורים*/
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
 }
+
+.products-center1 {
+  /*בשביל דף קטגוריות*/
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: -ms-grid;
+  display: grid;
+  /* minmax קובע טווח רצוי לטורים*/
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+
+.products-center2 {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: -ms-grid;
+  display: grid;
+  /* minmax קובע טווח רצוי לטורים*/
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+
 .img-container {
   position: relative;
   overflow: hidden;
-  box-shadow: 0px 0px 8px #3b4a80;
+  -webkit-box-shadow: 0px 0px 8px #3b4a80;
+          box-shadow: 0px 0px 8px #3b4a80;
 }
+
 .bag-btn {
   position: absolute;
   top: 70%;
   right: 0;
-  background: var(--primaryColor);
+  background: #519bf0;
   border: none;
   text-transform: uppercase;
   padding: 0.5rem 0.75rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   font-weight: bold;
-  transition: var(--mainTransition);
-  transform: translateX(101%);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -webkit-transform: translateX(101%);
+          transform: translateX(101%);
   cursor: pointer;
 }
+
 .bag-btn:hover {
-  color: var(--mainWhite);
+  color: #fff;
 }
+
 .fa-shopping-cart {
   margin-right: 0.5rem;
 }
+
 .img-container:hover .bag-btn {
-  transform: translateX(0);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
+
 .product-img {
   display: block;
   width: 100%;
   min-height: 12rem;
-  transition: var(--mainTransition);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
 }
+
 .img-container:hover .product-img {
   opacity: 0.5;
 }
@@ -196,19 +292,18 @@ body {
   text-transform: capitalize;
   font-size: 1.1rem;
   margin-top: 1rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   text-align: center;
 }
 
 .product h4 {
   margin-top: 0.7rem;
-  letter-spacing: var(--mainSpacing);
-  color: var(--primaryColor);
+  letter-spacing: 0.1rem;
+  color: #519bf0;
   text-align: center;
 }
 
 /* ---------------סוף המוצרים ---------------- */
-
 /* --------------- עגלה ---------------- */
 .cart-overlay {
   position: fixed;
@@ -216,11 +311,13 @@ body {
   right: 0;
   width: 100%;
   height: 100%;
-  transition: var(--mainTransition);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
   background: rgba(166, 187, 219, 0.5);
   z-index: 2;
   visibility: hidden;
 }
+
 .cart {
   position: fixed;
   top: 0;
@@ -231,15 +328,21 @@ body {
   z-index: 3;
   background: rgba(231, 226, 221, 0.74);
   padding: 1.5rem;
-  transition: var(--mainTransition);
-  transform: translateX(100%);
+  -webkit-transition: all 0.3s linear;
+  transition: all 0.3s linear;
+  -webkit-transform: translateX(100%);
+          transform: translateX(100%);
 }
+
 .showCart {
-  transform: translateX(0);
+  -webkit-transform: translateX(0);
+          transform: translateX(0);
 }
+
 .transparentBcg {
   visibility: visible;
 }
+
 @media screen and (min-width: 768px) {
   .cart {
     width: 30vw;
@@ -251,130 +354,147 @@ body {
   font-size: 1.7rem;
   cursor: pointer;
 }
+
 .cart h2 {
   text-transform: capitalize;
   text-align: center;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   margin-bottom: 2rem;
 }
 
 /*---------- מוצר בעגלה -------------------- */
 .cart-item {
+  display: -ms-grid;
   display: grid;
-  align-items: center;
-  grid-template-columns: auto 1fr auto; /* גודל אוטומטי לתמונה והכפתורים של למעלה/למטה והטקסט תופס מה שביניהם*/
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-grid-columns: auto 1fr auto;
+      grid-template-columns: auto 1fr auto;
+  /* גודל אוטומטי לתמונה והכפתורים של למעלה/למטה והטקסט תופס מה שביניהם*/
   grid-column-gap: 1.5rem;
   margin: 1.5rem 0;
 }
+
 .cart-item img {
   width: 75px;
   height: 75px;
 }
+
 .cart-item h4 {
   font-size: 0.85rem;
   text-transform: capitalize;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
 }
+
 .cart-item h5 {
   margin: 0.5rem 0;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
 }
+
 .item-amount {
   text-align: center;
 }
+
 .remove-item {
   color: grey;
   cursor: pointer;
 }
-.fa-chevron-up,
-.fa-chevron-down {
-  color: var(--primaryColor);
+
+.fa-chevron-up, .fa-chevron-down {
+  color: #519bf0;
   cursor: pointer;
 }
-/*---------- סוף של מוצר בעגלה -------------------- */
 
+/*---------- סוף של מוצר בעגלה -------------------- */
 .cart-footer {
   margin-top: 2rem;
-  letter-spacing: var(--mainSpacing);
+  letter-spacing: 0.1rem;
   text-align: center;
 }
+
 .cart-footer h3 {
   text-transform: capitalize;
   margin-bottom: 1rem;
 }
 
 /* ---------------סוף העגלה ---------------- */
-
-
 /* footer */
-.footer-classic a,
-.footer-classic a:focus,
-.footer-classic a:active {
-    color: #ffffff;
+.footer-classic a {
+  color: #ffffff;
+}
 
+.footer-classic a:focus, .footer-classic a:active {
+  color: #ffffff;
 }
 
 .nav-list li {
-    padding-top: 5px;
-    padding-bottom: 5px;
+  padding-top: 5px;
+  padding-bottom: 5px;
 }
 
 .nav-list li a:hover:before {
-    margin-left: 0;
-    opacity: 1;
-    visibility: visible;
+  margin-left: 0;
+  opacity: 1;
+  visibility: visible;
 }
 
-ul,
-ol {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+ul, ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .social-inner {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-    width: 100%;
-    padding: 23px;
-    font: 900 13px/1 "Lato", "Segoe UI", 'Roboto', "Helvetica Neue", Arial, sans-serif;
-    text-transform: uppercase;
-    color: rgba(255, 255, 255, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  padding: 23px;
+  font: 900 13px/1 "Lato", "Segoe UI", 'Roboto', "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
 }
 
 .social-container .col {
-    border:1.5px solid rgba(255, 255, 255, 0.1);
-    background: linear-gradient(0deg, rgb(221, 225, 247) 0%, rgb(83, 151, 214) 100%);
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  background: -webkit-gradient(linear, left bottom, left top, from(#dde1f7), to(#5397d6));
+  background: linear-gradient(0deg, #dde1f7 0%, #5397d6 100%);
 }
 
 .nav-list li a:before {
-    content: "\f14f";
-    font: 400 21px/1 "Material Design Icons";
-    color: #4d6de6;
-    display: inline-block;
-    vertical-align: baseline;
-    margin-left: -28px;
-    margin-right: 7px;
-    opacity: 0;
-    visibility: hidden;
-    transition: .22s ease;
+  content: "\f14f";
+  font: 400 21px/1 "Material Design Icons";
+  color: #4d6de6;
+  display: inline-block;
+  vertical-align: baseline;
+  margin-left: -28px;
+  margin-right: 7px;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transition: .22s ease;
+  transition: .22s ease;
 }
 
-.contact-list {
-    text-align: center;
+.float {
+  position: fixed;
+  z-index: 3;
+  bottom: 0;
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  margin-left: 95%;
+  color: rgba(83, 83, 221, 0.411);
 }
 
-.nav-list {
-    text-align: center;
+.contact-list, .nav-list, .brand, .section {
+  text-align: center;
 }
-
-.brand {
-    text-align: center;
-}
-
-.section {
-    text-align: center;
-}
-
+/*# sourceMappingURL=style.css.map */
