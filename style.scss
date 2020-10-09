@@ -2,8 +2,31 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap');
 
-@use 'variables';
+@import '_variables.scss';
 
+@mixin SectionTitleH2 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: rgb(240, 240, 240);
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: $mainSpacing;
+}
+
+@mixin ProCenter {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: -ms-grid;
+  display: grid;
+  /* minmax קובע טווח רצוי לטורים*/
+  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;  
+}
 
 * {
   scroll-behavior: smooth;
@@ -159,81 +182,44 @@ background-position: center;
 .section-title h2 {
 
   color: rgb(240, 240, 240);
-  text-align: center;
-  font-size: 2.9rem;
-  margin-bottom: 5rem;
-  text-transform: capitalize;
-  letter-spacing: $mainSpacing;
+  @include SectionTitleH2();
   background: -moz-linear-gradient(left, rgba(179, 220, 237, 1) 0%, rgba(35, 186, 232, 1) 36%, rgba(93, 230, 240, 1) 72%, rgba(188, 224, 238, 1) 100%);
   background: linear-gradient(to right, rgba(179, 220, 237, 1) 0%, rgba(35, 186, 232, 1) 23%, rgba(232, 75, 106, 1) 53%, rgba(93, 230, 240, 1) 77%, rgba(188, 224, 238, 1) 100%);
 }
 
 .section-title1 h2 {
   /*לדף קטגוריות*/
-  text-align: center;
-  font-size: 3.5rem;
-  color: rgb(240, 240, 240);
-  margin-top: 2rem;
-  margin-bottom: 5rem;
-  text-transform: capitalize;
-  letter-spacing: $mainSpacing;
+ @include SectionTitleH2();
   text-shadow: 0px 0px 8px #0941496b;
   background: linear-gradient(to right, rgba(179, 220, 237, 1) 0%, rgba(35, 186, 232, 1) 23%, rgb(75, 85, 232) 53%, rgba(93, 230, 240, 1) 77%, rgba(188, 224, 238, 1) 100%);
 }
 
 .section-title2 h2 {
   /*לדף קטגוריות*/
-  text-align: center;
-  font-size: 3.5rem;
-  color: rgb(240, 240, 240);
-  margin-bottom: 5rem;
-  text-transform: capitalize;
-  letter-spacing: $mainSpacing;
+  @include SectionTitleH2();
   text-shadow: 0px 0px 8px #2b707a6b;
   background: linear-gradient(to right, rgb(240, 245, 213) 0%, rgb(247, 223, 117) 23%, rgb(232, 138, 75) 53%, rgb(93, 240, 179) 77%, rgb(238, 218, 188) 100%);
 }
 
+.section-title3 h2{
+  @include SectionTitleH2();
+  text-shadow: 0px 0px 8px #2b707a6b;
+  background: linear-gradient(to right, #f7cf8d 0%, #943f3f 23%, #ec410e 53%, #ff9324 77%, #fff4e2 100%);}
+
 .products-center {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
-
-  /* minmax קובע טווח רצוי לטורים*/
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-
-  /* השימוש בפראקשן כדי ליצור טורים שווים*/
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
+  @include ProCenter();
 }
 
 .products-center1 {
-  /*בשביל דף קטגוריות*/
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
-
-  /* minmax קובע טווח רצוי לטורים*/
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-
-  /* השימוש בפראקשן כדי ליצור טורים שווים*/
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
+  @include ProCenter();
 }
 
 .products-center2 {
-  width: 90vw;
-  margin: 0 auto;
-  max-width: 1170px;
-  display: grid;
+  @include ProCenter();
+}
 
-  /* minmax קובע טווח רצוי לטורים*/
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-
-  /* השימוש בפראקשן כדי ליצור טורים שווים*/
-  grid-column-gap: 1.5rem;
-  grid-row-gap: 2rem;
+.products-center3{
+  @include ProCenter();
 }
 
 .img-container {

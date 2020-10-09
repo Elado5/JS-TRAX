@@ -10,13 +10,14 @@
 }
 
 body {
-  color: #222;
+  color: #1d1d1d;
   background: #fff;
   font-family: "Lato", sans-serif;
 }
 
 /* --------------- Navbar ---------------- */
 .navbar {
+  z-index: 3;
   position: -webkit-sticky;
   position: sticky;
   /*הבר נשאר גם לאורך הסקרולינג*/
@@ -31,7 +32,6 @@ body {
       -ms-flex-align: center;
           align-items: center;
   background: #f0f5f5;
-  z-index: 2;
 }
 
 .navbar-center {
@@ -128,7 +128,7 @@ body {
 }
 
 .banner {
-  z-index: 2;
+  z-index: 1;
   text-align: center;
   background: rgba(255, 255, 255, 0.4);
   display: inline-block;
@@ -136,6 +136,7 @@ body {
 }
 
 .banner-title {
+  z-index: 0;
   font-size: 3.4rem;
   text-transform: uppercase;
   letter-spacing: 0.1rem;
@@ -149,7 +150,7 @@ body {
   letter-spacing: 0.1rem;
   font-size: 1.5rem;
   background: #519bf0;
-  color: #222;
+  color: #1d1d1d;
   border: 1px solid #519bf0;
   -webkit-transition: all 0.3s linear;
   transition: all 0.3s linear;
@@ -172,7 +173,9 @@ body {
 .section-title h2 {
   color: #f0f0f0;
   text-align: center;
-  font-size: 2.9rem;
+  font-size: 3.5rem;
+  color: #f0f0f0;
+  margin-top: 2rem;
   margin-bottom: 5rem;
   text-transform: capitalize;
   letter-spacing: 0.1rem;
@@ -199,12 +202,26 @@ body {
   text-align: center;
   font-size: 3.5rem;
   color: #f0f0f0;
+  margin-top: 2rem;
   margin-bottom: 5rem;
   text-transform: capitalize;
   letter-spacing: 0.1rem;
   text-shadow: 0px 0px 8px #2b707a6b;
   background: -webkit-gradient(linear, left top, right top, from(#f0f5d5), color-stop(23%, #f7df75), color-stop(53%, #e88a4b), color-stop(77%, #5df0b3), to(#eedabc));
   background: linear-gradient(to right, #f0f5d5 0%, #f7df75 23%, #e88a4b 53%, #5df0b3 77%, #eedabc 100%);
+}
+
+.section-title3 h2 {
+  text-align: center;
+  font-size: 3.5rem;
+  color: #f0f0f0;
+  margin-top: 2rem;
+  margin-bottom: 5rem;
+  text-transform: capitalize;
+  letter-spacing: 0.1rem;
+  text-shadow: 0px 0px 8px #2b707a6b;
+  background: -webkit-gradient(linear, left top, right top, from(#f7cf8d), color-stop(23%, #943f3f), color-stop(53%, #ec410e), color-stop(77%, #ff9324), to(#fff4e2));
+  background: linear-gradient(to right, #f7cf8d 0%, #943f3f 23%, #ec410e 53%, #ff9324 77%, #fff4e2 100%);
 }
 
 .products-center {
@@ -214,23 +231,22 @@ body {
   display: -ms-grid;
   display: grid;
   /* minmax קובע טווח רצוי לטורים*/
-  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  -ms-grid-columns: minmax(260px, 1fr) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   /* השימוש בפראקשן כדי ליצור טורים שווים*/
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
 }
 
 .products-center1 {
-  /*בשביל דף קטגוריות*/
   width: 90vw;
   margin: 0 auto;
   max-width: 1170px;
   display: -ms-grid;
   display: grid;
   /* minmax קובע טווח רצוי לטורים*/
-  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  -ms-grid-columns: minmax(260px, 1fr) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   /* השימוש בפראקשן כדי ליצור טורים שווים*/
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;
@@ -243,8 +259,22 @@ body {
   display: -ms-grid;
   display: grid;
   /* minmax קובע טווח רצוי לטורים*/
-  -ms-grid-columns: (minmax(260px, 1fr))[auto-fill];
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  -ms-grid-columns: minmax(260px, 1fr) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  /* השימוש בפראקשן כדי ליצור טורים שווים*/
+  grid-column-gap: 1.5rem;
+  grid-row-gap: 2rem;
+}
+
+.products-center3 {
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1170px;
+  display: -ms-grid;
+  display: grid;
+  /* minmax קובע טווח רצוי לטורים*/
+  -ms-grid-columns: minmax(260px, 1fr) [auto-fill];
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   /* השימוש בפראקשן כדי ליצור טורים שווים*/
   grid-column-gap: 1.5rem;
   grid-row-gap: 2rem;

@@ -11,6 +11,7 @@ const cartTotal = document.querySelector(".cart-total");
 const productsDOM = document.querySelector(".products-center");
 const productsDOM1 = document.querySelector(".products-center1");
 const productsDOM2 = document.querySelector(".products-center2");
+const productsDOM3 = document.querySelector(".products-center3");
 
 
 // עגלה
@@ -101,7 +102,7 @@ if (parseInt(product.id) <5){
 
        
         products.forEach(product => {
-if (parseInt(product.id) >4){
+if (parseInt(product.id) >4&& parseInt(product.id)<9){
 
             result += `
         <article class="product">
@@ -126,6 +127,37 @@ if (parseInt(product.id) >4){
           productsDOM2.innerHTML = result;
     }
 
+    displayProducts3(products) {
+        let result = "";
+        
+        let itemCounter = 0;
+
+       
+        products.forEach(product => {
+if (parseInt(product.id) >8&& parseInt(product.id)<=12){
+
+            result += `
+        <article class="product">
+        <div class="img-container">
+            <img 
+            src=${product.image}
+            alt=${product.title}
+            class="product-img" />
+            <button class="bag-btn" data-id=${product.id}>
+                <i class="fas fa-shopping-cart"></i>
+                add to cart
+            </button>
+
+        </div>
+        <h3>${product.title}</h3>
+        <h4>₪${product.price}</h4>
+        </article>
+            <!-- end of single product -->
+        `
+        
+          }});
+          productsDOM3.innerHTML = result;
+    }
     
 
     getBagButtons() {
@@ -340,6 +372,7 @@ ui.setupAPP();
     products.getProducts().then(products => {
         ui.displayProducts1(products);
         ui.displayProducts2(products);
+        ui.displayProducts3(products);
         Storage.saveProducts(products);
     })
     .then(() => {

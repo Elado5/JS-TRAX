@@ -63,6 +63,42 @@
         "price": 119.99,
         "image": { "fields": { "file": { "url": "./images/product-8.jpeg" } } }
       }
-    }
+      },
+{
+      "sys": {"id": "9"},
+      "fields": {
+        "title": "Shaker",
+        "price": 39.99,
+        "image": {"fields":{"file": {"url":"./images/product-9.jpeg"} } }
+      }
+      },
+      
+{
+      "sys": {"id": "10"},
+      "fields": {
+        "title": "Protein Powder 2.2KG",
+        "price": 249.99,
+        "image": {"fields":{"file": {"url":"./images/product-11.jpeg"} } }
+      }
+      },
+
+      {
+        "sys": {"id": "11"},
+        "fields": {
+          "title": "Protein Bar 12x Package",
+          "price": 129.99,
+          "image": {"fields":{"file": {"url":"./images/product-10.jpeg"} } }
+        }
+        },
+{
+      "sys": {"id": "12"},
+      "fields": {
+        "title": "Creatine Powder 400g",
+        "price": 89.99,
+        "image": {"fields":{"file": {"url":"./images/product-12.jpeg"} } }
+      }
+      }
+
+    
   ]
 }
